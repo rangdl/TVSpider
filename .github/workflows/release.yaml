@@ -20,7 +20,7 @@ jobs:
       - name: Clone TVSpider Repository
         uses: actions/checkout@v3
         with:
-          repository: rangdl/TVSpider
+          repository: jadehh/TVSpider
           path: tmp
           fetch-depth: 0  # 显示所有提交的日志
 
