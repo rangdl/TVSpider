@@ -14,7 +14,7 @@ jobs:
       - name: Clone Base Repository
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ secrets.GH_PATH }}
           fetch-depth: 0
 
@@ -73,7 +73,7 @@ jobs:
       - name: Push JS Config Changes To Github
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ secrets.GH_PATH }}
           directory: .
           branch: js
@@ -124,7 +124,7 @@ jobs:
       - name: Push NodelJS Config Changes To Github
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ secrets.GH_PATH }}
           directory: .
           branch: dist
@@ -177,7 +177,7 @@ jobs:
       - name: Push NodelJS Config Changes To Github
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ secrets.GH_PATH }}
           directory: .
           branch: 18_dist
