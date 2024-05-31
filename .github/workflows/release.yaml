@@ -5,7 +5,6 @@ jobs:
   build:
     name: TVSpider
     runs-on: ubuntu-latest
-    environment: default
     strategy:
       fail-fast: false
       matrix:
