@@ -1,4 +1,4 @@
-import {__jsEvalReturn} from './wogg.js';
+import {__jsEvalReturn} from '../js/dubo.js';
 
 import * as Utils from "../lib/utils.js";
 
@@ -51,7 +51,7 @@ async function testMusicPlay(vodDetail) {
 }
 
 async function test() {
-    let siteKey = 'wogg';
+    let siteKey = 'jianpian';
     let siteType = 3;
     await spider.init({
         skey: siteKey, stype: siteType, ext: {
@@ -68,17 +68,22 @@ async function test() {
     let classes = JSON.parse(await spider.home(true));
     console.debug(JSON.stringify(classes))
 
-
-    
-    // 测试详情
-    let detail1 = JSON.parse(await spider.detail("/index.php/voddetail/84022.html"))
-    await testPlay(detail1)
-
-
     
     //测试首页列表
     let homeVod = JSON.parse(await spider.homeVod())
     console.debug(JSON.stringify(homeVod));
+
+    
+    // // 测试详情
+    // let detail1 = JSON.parse(await spider.detail("562381"))
+    // await testPlay(detail1)
+
+    /***
+     * 
+     * "HD粤语中英双字$ftp://a.gbl.114s.com:20320/9607/潜行-2023_HD粤语中英双字.mp4#HD国语中英双字$ftp://a.gbl.114s.com:20320/8224/潜行-2023_HD国语中英双字.mp4#BD国粤双语中字$ftp://a.gbl.114s.com:20320/1413/潜行-2023_BD国粤双语中字.mp4"
+     */
+
+
 
 
 
@@ -91,8 +96,8 @@ async function test() {
 
     
     // 测试搜索
-    let search_page = JSON.parse(await spider.search("庆余年", false, 1))
-    console.debug(JSON.stringify(search_page))
+    // let search_page = JSON.parse(await spider.search("庆余年", false, 1))
+    // console.debug(JSON.stringify(search_page))
 
 
 
@@ -111,18 +116,18 @@ async function test() {
 
 
     // 测试详情
-    if (search_page.list && search_page.list.length > 0) {
-        for (const k in search_page.list) {
-            // console.debug(k)
-            if (k >= 1) break;
-            let obj = search_page.list[k]
-            let spVid = search_page.list[k].vod_id
-            console.debug("===", spVid)
-            var detail = JSON.parse(await spider.detail(spVid || search_page.list[k].vod_id));
+    // if (search_page.list && search_page.list.length > 0) {
+    //     for (const k in search_page.list) {
+    //         // console.debug(k)
+    //         if (k >= 1) break;
+    //         let obj = search_page.list[k]
+    //         let spVid = search_page.list[k].vod_id
+    //         console.debug("===", spVid)
+    //         var detail = JSON.parse(await spider.detail(spVid || search_page.list[k].vod_id));
 
-            await testPlay(detail);
-        }
-    }
+    //         await testPlay(detail);
+    //     }
+    // }
 }
 
 export {test};
